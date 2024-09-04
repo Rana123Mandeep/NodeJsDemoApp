@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
  
 const userRouter = require('./routes/userAPI');
+
  // require('dotenv').config(); //for using variables from .env file.
 require('./config/config');
 
@@ -35,10 +36,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 
 });
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
- 
+
+app.use('/users',userRouter);
+
 //This enabled CORS, Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources (e.g. fonts) 
 //on a web page to be requested from another domain outside the domain from which the first resource was served
  
@@ -59,5 +59,5 @@ module.exports = app;
 
 
 
-app.use('/users',userRouter);
+
  
