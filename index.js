@@ -2,7 +2,7 @@ const express = require('express');
 
 const mongoose = require('mongoose');
  
-//const usersRouter = require('./routes/userAPI');
+const userRouter = require('./routes/userAPI');
  
 require('dotenv').config(); //for using variables from .env file.
  
@@ -33,5 +33,5 @@ app.get('/', (req, res) => {
 
 });
 
-//app.use('/users',userRouter);
+app.use('/users',userRouter);
  
